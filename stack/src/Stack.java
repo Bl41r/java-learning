@@ -32,7 +32,15 @@ public class Stack {
 			throw new EmptyStackException();
 		}
 	}
+	
 
+	public int peek() {
+		if (this.head != null) {
+			return this.head.val;
+		} else {
+			throw new EmptyStackException();
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -42,6 +50,7 @@ public class Stack {
 		s.push(2);
 		System.out.println(s.head.val);
 		System.out.println(s.head.next.val);
+		System.out.println(s.peek());
 	
 	}
 

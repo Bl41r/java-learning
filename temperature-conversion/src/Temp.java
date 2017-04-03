@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class temp {
+public class Temp {
 	
 	public static double convertCtoF(double temperature) {
 		return temperature  * (9.0 / 5) + 32;

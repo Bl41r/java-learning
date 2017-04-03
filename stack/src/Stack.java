@@ -6,7 +6,9 @@ public class Stack {
 
 	
 	public Stack() {
+
 		this.head = null;
+
 	}
 
 	
@@ -34,11 +36,12 @@ public class Stack {
 	}
 	
 
-	public int peek() {
+	public Integer peek() {
+
 		if (this.head != null) {
 			return this.head.val;
 		} else {
-			throw new EmptyStackException();
+			return null;
 		}
 	}
 
@@ -46,11 +49,14 @@ public class Stack {
 
 		Stack s = new Stack();
 		s.push(1);
-		System.out.println(s.head.val);
+		System.out.println(s.head.val);		// 1
 		s.push(2);
-		System.out.println(s.head.val);
-		System.out.println(s.head.next.val);
-		System.out.println(s.peek());
+		System.out.println(s.head.val);		// 2
+		System.out.println(s.head.next.val);	// 1
+		System.out.println(s.peek());	// 2
+		s.pop();
+		s.pop();
+		System.out.println(s.peek());	// null
 	
 	}
 

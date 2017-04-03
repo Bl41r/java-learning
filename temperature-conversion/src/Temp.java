@@ -21,37 +21,25 @@ public class Temp {
 		}
 		
 		double temperature;
+		System.out.println("Temperature to convert?");
+			
+		do {
+			try {
+				String t = scanner.next();
+				temperature = Double.parseDouble(t);
+				break;
+				
+			} catch (Exception e) {
+				System.out.println("Could not parse input, try again.");
+			}
+			
+		} while (true);
+		
 		if (selection == 1) {
-			System.out.println("Temperature in Celsius to convert?");
-			
-			do {
-				try {
-					String t = scanner.next();
-					temperature = Double.parseDouble(t);
-					System.out.println(convertCtoF(temperature));
-					break;
-				
-				} catch (Exception e) {
-					System.out.println("Could not parse input, try again.");
-				}
-			
-			} while (true);
-
+			System.out.println(temperature + " C is " + convertCtoF(temperature) + " F");
 		} else {
-			System.out.println("Temperature in Fahrenheit to convert?");
-			
-			do {
-				try{
-					String t = scanner.next();
-					temperature = Double.parseDouble(t);
-					System.out.println(convertFtoC(temperature));
-					break;
-				
-				} catch (Exception e) {
-					System.out.println("Could not parse input, try again.");
-				}
-			
-			} while (true);
+			System.out.println(temperature + " F is " + convertFtoC(temperature) + " C");
 		}
+
 	}
 }

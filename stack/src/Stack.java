@@ -1,3 +1,5 @@
+import java.util.EmptyStackException;
+
 public class Stack {
 
 	Node head;
@@ -16,6 +18,18 @@ public class Stack {
 			Node newNode = new Node(number);
 			newNode.next = this.head;
 			this.head = newNode;
+		}
+	}
+	
+	
+	public int pop() {
+
+		if (this.head != null) {
+			Node tmp = this.head;
+			this.head = this.head.next;
+			return tmp.val;
+		} else {
+			throw new EmptyStackException();
 		}
 	}
 

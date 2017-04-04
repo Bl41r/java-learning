@@ -3,11 +3,13 @@ import java.util.EmptyStackException;
 public class Stack {
 
 	Node head;
+	Integer size;
 
 	
 	public Stack() {
 
 		this.head = null;
+		this.size = 0;
 
 	}
 
@@ -22,6 +24,7 @@ public class Stack {
 			newNode.next = this.head;
 			this.head = newNode;
 		}
+		this.size += 1;
 	}
 	
 	
@@ -30,6 +33,7 @@ public class Stack {
 		if (this.head != null) {
 			Node tmp = this.head;
 			this.head = this.head.next;
+			this.size -= 1;
 			return tmp.val;
 		
 		} else {
@@ -54,12 +58,14 @@ public class Stack {
 		s.push(1);
 		System.out.println(s.head.val);		// 1
 		s.push(2);
+		System.out.println(s.size);		// 2
 		System.out.println(s.head.val);		// 2
 		System.out.println(s.head.next.val);	// 1
 		System.out.println(s.peek());	// 2
 		s.pop();
 		s.pop();
 		System.out.println(s.peek());	// null
+		System.out.println(s.size);		// 0
 	
 	}
 

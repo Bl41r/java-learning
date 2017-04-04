@@ -4,11 +4,13 @@ public class Queue {
 
     Node head;
     Node tail;
+    Integer size;
 
 	public Queue() {
 		
         this.head = null;
         this.tail = null;
+        this.size = 0;
 
 	}
 
@@ -22,6 +24,7 @@ public class Queue {
             this.tail.next = newNode;
             this.tail = newNode;
         }
+        this.size += 1;
 
     }
 
@@ -32,6 +35,7 @@ public class Queue {
             int returnVal = this.head.val;
             this.head = null;
             this.tail = null;
+            this.size = 0;
             return returnVal;
 
         } else if (this.head == null) {
@@ -42,6 +46,7 @@ public class Queue {
 
             int returnVal = this.head.val;
             this.head = this.head.next;
+            this.size -= 1;
             return returnVal;
 
         }
@@ -65,12 +70,15 @@ public class Queue {
         q.enqueue(1);
         q.enqueue(2);
         q.enqueue(3);
+        System.out.println(q.size);     // 3
         System.out.println(q.peek());       // 1
         System.out.println(q.dequeue());    // 1
         System.out.println(q.peek());   // 2
+        System.out.println(q.size);     // 2
         q.dequeue();    // bye 2
-        q.dequeue();    //bye 3
+        q.dequeue();    // bye 3
         System.out.println(q.peek());   // null
+        System.out.println(q.size);     // 0
         q.dequeue();    // error
 
 	}

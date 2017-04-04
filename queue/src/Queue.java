@@ -1,5 +1,3 @@
-import java.util.EmptyStackException;
-
 public class Queue {
 
     Node head;
@@ -30,17 +28,17 @@ public class Queue {
 
     public int dequeue() {
 
-        if (this.head == this.tail) {
-            
+        if (this.head == null) {
+
+            throw new EmptyQueueException("Cannot dequeue an empty queue.");
+
+        } else if (this.head == this.tail) {
+
             int returnVal = this.head.val;
             this.head = null;
             this.tail = null;
             this.size = 0;
             return returnVal;
-
-        } else if (this.head == null) {
-
-            throw new EmptyStackException();
 
         } else {
 
